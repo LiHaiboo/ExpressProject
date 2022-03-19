@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e4dc3c2-74c4-41d3-8df3-78baa6648347" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Pug File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="26Pj06hrqXY8PTu3POQjOCr2k6E" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.15.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.18.12" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\software eginering\WebStorm 2020.2.3\新建文件夹\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="npm.devstart">
+    <configuration name="devstart" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="devstart" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serverstart" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serverstart" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.devstart" />
+        <item itemvalue="npm.serverstart" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e4dc3c2-74c4-41d3-8df3-78baa6648347" name="Default Changelist" comment="" />
+      <created>1647331889652</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647331889652</updated>
+      <workItem from="1647331890705" duration="3961000" />
+      <workItem from="1647348413980" duration="1563000" />
+      <workItem from="1647438153396" duration="2495000" />
+      <workItem from="1647510300549" duration="7158000" />
+      <workItem from="1647594336713" duration="6841000" />
+      <workItem from="1647611032976" duration="2931000" />
+      <workItem from="1647614725558" duration="1739000" />
+      <workItem from="1647666609772" duration="11416000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="364" y="210" key="EditFileWatcherDialog" timestamp="1647518749509">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="364" y="210" key="EditFileWatcherDialog/0.0.1536.834@0.0.1536.834" timestamp="1647518749509" />
+    <state width="1515" height="14" key="GridCell.Tab.0.bottom" timestamp="1647679880326">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="14" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1647679880326" />
+    <state width="1515" height="14" key="GridCell.Tab.0.center" timestamp="1647679880326">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="14" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1647679880326" />
+    <state width="1515" height="14" key="GridCell.Tab.0.left" timestamp="1647679880326">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="14" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1647679880326" />
+    <state width="1515" height="14" key="GridCell.Tab.0.right" timestamp="1647679880326">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="14" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1647679880326" />
+  </component>
+</project>
