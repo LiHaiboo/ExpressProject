@@ -13,8 +13,23 @@ var router = express.Router();
 
 // GET 请求主页
 router.get('/', (req, res) => {
-  res.redirect('/catalog');
+  var sess = req.session;
+  var loginUser = sess.loginUser;
+  var isLogined = !!loginUser;
+
+  if(isLogined){
+    res.redirect('/catalog');
+  }else{
+    res.redirect('/login');
+  }
 });
+
+
+// /* GET users listing. */
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
+
 
 //导出路由
 module.exports = router;

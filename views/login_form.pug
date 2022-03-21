@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css')
+        script(src='https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js')
+        script(src='https://cdn.staticfile.org/twitter-bootstrap/3.4.1/js/bootstrap.min.js')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+    h1 #{title}
+    form(method='POST' action='')
+        div.form-group
+            label(for='username') 用户名:
+            input#username.form-control(type='text', placeholder='请输入账号' name='username')
+            label(for='password') 密码:
+            input#password.form-control(type='password', placeholder='请输入密码' name='password')
+        button.btn.btn-primary(type='submit') 登录
+
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
