@@ -1,34 +1,41 @@
 var Book = require('../models/book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
+var User = require('../models/user');
 var BookInstance = require('../models/bookinstance');
 
+var permission_judge = require('../tools');
 var async = require('async');
 
 const { body,validationResult,sanitizeBody } = require('express-validator');
 
 exports.index = function(req, res) {
 
-    async.parallel({
-        book_count: function(callback) {
-            Book.count({}, callback); // Pass an empty object as match condition to find all documents of this collection
-        },
-        book_instance_count: function(callback) {
-            BookInstance.count({}, callback);
-        },
-        book_instance_available_count: function(callback) {
-            BookInstance.count({status:'Available'}, callback);
-        },
-        author_count: function(callback) {
-            Author.count({}, callback);
-        },
-        genre_count: function(callback) {
-            Genre.count({}, callback);
-        },
-    }, function(err, results) {
-        res.render('index', { title: 'Local Library Home', error: err, data: results });
+    permission_judge(req.session.loginUser,'student',()=>{
+        async.parallel({
+            book_count: function (callback) {
+                Book.count({}, callback); // Pass an empty object as match condition to find all documents of this collection
+            },
+            book_instance_count: function (callback) {
+                BookInstance.count({}, callback);
+            },
+            book_instance_available_count: function (callback) {
+                BookInstance.count({status: 'Available'}, callback);
+            },
+            author_count: function (callback) {
+                Author.count({}, callback);
+            },
+            genre_count: function (callback) {
+                Genre.count({}, callback);
+            },
+        }, function (err, results) {
+            res.render('index', {title: 'Local Library Home', error: err, data: results});
+        });
     });
-};
+}
+
+
+
 
 // Display list of all Books.
 exports.book_list = function(req, res, next) {
