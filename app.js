@@ -75,6 +75,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
+console.log('http://localhost:3000/')
 //暴露出去
 module.exports = app;

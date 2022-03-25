@@ -20,11 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e4dc3c2-74c4-41d3-8df3-78baa6648347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/courseController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/studentController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/student_courseController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/course.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/student.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/student_course.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/grade_list.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/bookController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/bookController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/catalog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Pug File" />
         <option value="JavaScript File" />
+        <option value="Pug File" />
       </list>
     </option>
   </component>
@@ -118,7 +128,9 @@
       <workItem from="1647680073516" duration="601000" />
       <workItem from="1647771900688" duration="11542000" />
       <workItem from="1647826263340" duration="5223000" />
-      <workItem from="1648082538912" duration="6857000" />
+      <workItem from="1648082538912" duration="7094000" />
+      <workItem from="1648170077233" duration="5797000" />
+      <workItem from="1648193289088" duration="15355000" />
     </task>
     <servers />
   </component>
@@ -142,21 +154,21 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="364" y="210" key="EditFileWatcherDialog/0.0.1536.834@0.0.1536.834" timestamp="1647518749509" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1648094978327">
+    <state width="1515" height="207" key="GridCell.Tab.0.bottom" timestamp="1648219416839">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1648094978327" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1648094978327">
+    <state width="1515" height="207" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1648219416839" />
+    <state width="1515" height="207" key="GridCell.Tab.0.center" timestamp="1648219416838">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1648094978327" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1648094978327">
+    <state width="1515" height="207" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1648219416838" />
+    <state width="1515" height="207" key="GridCell.Tab.0.left" timestamp="1648219416838">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1648094978327" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1648094978327">
+    <state width="1515" height="207" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1648219416838" />
+    <state width="1515" height="207" key="GridCell.Tab.0.right" timestamp="1648219416839">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1648094978327" />
+    <state width="1515" height="207" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1648219416839" />
   </component>
 </project>

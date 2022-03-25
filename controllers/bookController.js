@@ -13,6 +13,9 @@ exports.index = function(req, res) {
 
     permission_judge(req.session.loginUser,'student',()=>{
         async.parallel({
+            user: function (callback){
+                User.findOne({username: req.session.loginUser}, callback);
+            },
             book_count: function (callback) {
                 Book.count({}, callback); // Pass an empty object as match condition to find all documents of this collection
             },
@@ -29,7 +32,7 @@ exports.index = function(req, res) {
                 Genre.count({}, callback);
             },
         }, function (err, results) {
-            res.render('index', {title: 'Local Library Home', error: err, data: results});
+            res.render('index', {title: '学生综合测评管理系统', error: err, data: results});
         });
     });
 }

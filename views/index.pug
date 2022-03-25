@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
+  h1 #{title}
+  p #{data.user.real_name}，欢迎来到#[em 学生综合测评管理系统], 您当前为#{data.user.title}用户
 
   h1 Dynamic content
 

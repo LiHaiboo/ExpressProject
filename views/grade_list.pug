@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h1= title
+    table
+        tr
+          th 课程号
+          th 课程名
+          th 英文课程名
+          th 学分
+          th 学时
+          th 课程属性
+          th 考试类型
+          th 成绩
+          th 未通过原因
+        each data in data_list
+          tr
+            th #{data.courseID}
+            th #{data.course_detail[0].course_name}
+            th #{data.course_detail[0].course_name_EN}
+            th #{data.course_detail[0].credit}
+            th #{data.course_detail[0].course_nature}
+            th #{data.semester}
+            th #{data.grade}
+            th #{data.comment?data.comment:'N/A'}
+        else
+            li 没有成绩信息
+
+
