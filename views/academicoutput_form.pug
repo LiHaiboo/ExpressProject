@@ -1,0 +1,24 @@
+extends layout
+block content
+    h1= title
+    form(action='' method='post' enctype='multipart/form-data')
+        div.form-group
+            label(for='name') 项目名称:
+            input#name.form-control(type='text' placeholder='请输入论文或专利的名称' name='name' required='true')
+            label(for='category') 项目分类:
+            select#category.form-control(type='select' name='category' required='true')
+                for paper in paper_list
+                    option(value=paper.catagory) #{paper.category}
+            label(for='level') 贡献:
+            select#level.form-control(type='select' name='level' required='true')
+                option(value='第一作者') 第一作者
+                option(value='第二作者') 第二作者
+            label(for='time') 时间:
+            input#time.form-control(type='text' placeholder='如:2019年6月' name='time' required='true')
+        div.form-group
+            label 证明材料:
+            input#files(type='file' name='file')
+            // 这里的multiple属性是允许多文件上传的，单文件上传可以不写此属性（最好都写上）
+            //input(type='submit' value='上传')
+            br
+            button.btn.btn-primary(type='submit') 提交

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 #{title}: #{output.name}
+    p #[strong 分类:] #{output.category}
+    p #[strong 贡献:] #{output.level}
+    p #[strong 时间:] #{output.time}
+    p #[strong 证明材料:]
+        a(href=output.evident target="_blank") 点击查看
+    p #[strong 审核状态:]
+       if output.status=='已审核'
+           span.text-success #{output.status}
+       else if output.status == '未通过'
+           span.text-danger #{output.status}
+           p #[strong 未通过原因:]#{output.comment}
+       else
+           span.text-warning #{output.status}

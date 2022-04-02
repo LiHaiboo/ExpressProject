@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const StudentSchema = new Schema({
     studentID: {type: String, required: true},
     student_name: {type: String, required: true},
-    classID: {type:String, required: true}
+    class: {type: Schema.Types.ObjectId, ref: 'Class', required: true}
 });
 
 // 虚拟属性'url'：学生URL

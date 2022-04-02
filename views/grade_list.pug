@@ -2,6 +2,30 @@ extends layout
 
 block content
     h1= title
+    form(method='POST' action='')
+        div.form-group
+            label(for='courseID') 课程号:
+            input#courseID.form-control(type='text', placeholder='如CSE001' name='courseID')
+        div.form_group
+            label(for='course_name') 课程名:
+            input#course_name.form-control(type='text', placeholder='请输入课程名称' name='course_name')
+        div.form-group
+            label(for='semester') 开设学期:
+            select#semester.form-control(type='select' placeholder='选择学期' name='semester' required='false')
+                for semester in semester_list
+                    option(value=semester) #{semester}
+                    //if book
+                    //    //- Handle GET form, where book.author is an object, and POST form, where it is a string.
+                    //    option(
+                    //        value=author._id
+                    //        selected=(
+                    //            author._id.toString() == book.author._id
+                    //            || author._id.toString() == book.author
+                    //        ) ? 'selected' : false
+                    //    ) #{author.name}
+                    //else
+                    //    option(value=author._id) #{author.name}
+        button.btn.btn-primary(type='submit') 查询
     table
         tr
           th 课程号

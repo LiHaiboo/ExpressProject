@@ -5,7 +5,7 @@ const { body,validationResult } = require('express-validator');
 
 // Display Genre create form on GET.
 exports.login_get = function(req, res, next) {
-    res.render('login_form', { title: '登录' });
+    res.render('login', { title: '登录' });
 };
 
 // Handle Genre create on POST.
@@ -31,7 +31,7 @@ exports.login_post =  [
 
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
-            res.render('login_form', { title: '登录', user: user, errors: errors.array()});
+            res.render('login', { title: '登录', user: user, errors: errors.array()});
             return;
         }
         else {
@@ -40,11 +40,14 @@ exports.login_post =  [
             User.findOne({
                 'username': req.body.username,
             }).then(user => {
+
+                console.log(user);
+
                 if(!user){
-                    return res.render('login_form', {title: '登录', user: user, errors:[{msg:'用户名不存在'}]});
+                    return res.render('login', {title: '登录', user: user, errors:[{msg:'用户名不存在'}]});
                 }
                 if(req.body.password != user.password){
-                    return res.render('login_form', {title:'登录', user:user, errors:[{msg:'密码错误'}]});
+                    return res.render('login', {title:'登录', user:user, errors:[{msg:'密码错误'}]});
                 }
 
                 //生成cookie

@@ -1,0 +1,10 @@
+extends tutor_layout
+
+block content
+    h1 论文专利审批
+    ul
+    each output in outputs
+        li
+            a(href=output.approve_url) #{output.name}
+    else
+        li 无审批任务

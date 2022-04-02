@@ -7,7 +7,8 @@ const Student_CourseSchema = new Schema({
     courseID: {type: String, required: true},
     grade: {type:String, required: true},
     semester: {type:String, required: true},
-    comment: {type:String, required: false}
+    comment: {type:String, required: false},
+    course_name: {type:String, required:true}
 });
 
 // 导出模块

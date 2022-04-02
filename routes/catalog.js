@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
+let multer = require('multer');
+var upload = multer({
+    dest:'public/evidences'
+})
 
 // Require controller modules.
 var book_controller = require('../controllers/bookController');
@@ -7,6 +11,8 @@ var author_controller = require('../controllers/authorController');
 var genre_controller = require('../controllers/genreController');
 var book_instance_controller = require('../controllers/bookinstanceController');
 var student_course_controller = require('../controllers/student_courseController');
+var academic_output_controller = require('../controllers/academic_output_controller');
+var approveController = require('../controllers/approveController');
 
 /// BOOK ROUTES ///
 
@@ -27,6 +33,31 @@ router.get('/',book_controller.index);
 
 /// GRADE ROUTES ///
 router.get('/grades',student_course_controller.grade_list);
+
+router.post('/grades',student_course_controller.grade_query_post);
+
+router.get('/academic_outputs',academic_output_controller.academic_output_list);
+
+router.get('/academic_outputs/create',academic_output_controller.output_create_get);
+
+router.post('/academic_outputs/create',upload.single('file'),academic_output_controller.output_create_post);
+
+router.get('/academic_outputs/:id',academic_output_controller.output_detail);
+
+router.post('/competitions',competition_controller.competition_list);
+
+
+/// tutor ///
+router.get('/approve',approveController.approve_list);
+
+router.get('/approve/output',approveController.output_approve_get);
+
+router.get('/approve/output/:id',approveController.output_approve_detail_get);
+
+router.post('/approve/output/:id',approveController.output_approve_detail_post);
+
+
+
 
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
 router.get('/book/create', book_controller.book_create_get);
