@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const ClassSchema = new Schema({
     tutor:String,
     name:String,
-    studentIDs:[String]
+    studentIDs:[String],
+    tutor_name:String
 });
 
 // 导出模块

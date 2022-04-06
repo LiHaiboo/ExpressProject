@@ -1,0 +1,20 @@
+extends layout_student
+block content
+    h1 #{myclass.name}
+    p 班导师:#{myclass.tutor_name}
+    table
+        tr
+            th 姓名
+            th 学号
+            th 成绩
+        each student in student_list
+            tr
+                th #{student.student_name}
+                th #{student.studentID}
+                th
+                    if student.studentID == current_user
+                        a(href='/catalog/grades') 总分（未实现）
+                    else
+                        a(href=student.grade_url) 总分（未实现）
+        else
+            li 没有班级信息

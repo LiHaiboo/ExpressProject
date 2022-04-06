@@ -8,5 +8,12 @@ const CompetitionSchema = new Schema({
     sponsor:String
 });
 
+// 虚拟属性'url'：藏书副本 URL
+CompetitionSchema
+    .virtual('url')
+    .get(function () {
+        return '/catalog/competitions/' + this._id;
+    });
+
 // 导出模块
 module.exports = mongoose.model('Competition', CompetitionSchema);

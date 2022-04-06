@@ -15,6 +15,13 @@ StudentSchema
         return '/catalog/student/' + this._id;
     });
 
+// 虚拟属性'url'：学生URL
+StudentSchema
+    .virtual('grade_url')
+    .get(function () {
+        return '/catalog/grades/' + this._id;
+    });
+
 // 导出模块
 module.exports = mongoose.model('Student', StudentSchema);
 

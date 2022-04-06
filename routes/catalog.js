@@ -4,6 +4,9 @@ let multer = require('multer');
 var upload = multer({
     dest:'public/evidences'
 })
+var grade_upload = multer({
+    dest:'public/grades'
+})
 
 // Require controller modules.
 var book_controller = require('../controllers/bookController');
@@ -13,10 +16,11 @@ var book_instance_controller = require('../controllers/bookinstanceController');
 var student_course_controller = require('../controllers/student_courseController');
 var academic_output_controller = require('../controllers/academic_output_controller');
 var approveController = require('../controllers/approveController');
+var competition_controller = require('../controllers/competitionController');
+var class_controller = require('../controllers/classController');
+
 
 /// BOOK ROUTES ///
-
-
 router.get('/*',(req, res,next) => {
     var sess = req.session;
     var loginUser = sess.loginUser;
@@ -36,6 +40,10 @@ router.get('/grades',student_course_controller.grade_list);
 
 router.post('/grades',student_course_controller.grade_query_post);
 
+router.get('/grades/:id',student_course_controller.grade_detail_get);
+
+router.post('/grades/:id',student_course_controller.grade_detail_post);
+
 router.get('/academic_outputs',academic_output_controller.academic_output_list);
 
 router.get('/academic_outputs/create',academic_output_controller.output_create_get);
@@ -44,8 +52,11 @@ router.post('/academic_outputs/create',upload.single('file'),academic_output_con
 
 router.get('/academic_outputs/:id',academic_output_controller.output_detail);
 
-router.post('/competitions',competition_controller.competition_list);
+router.get('/competitions',competition_controller.competition_list);
 
+router.get('/competitions/:id',competition_controller.competition_detail);
+
+router.get('/classes',class_controller.class_detail);
 
 /// tutor ///
 router.get('/approve',approveController.approve_list);
@@ -55,6 +66,11 @@ router.get('/approve/output',approveController.output_approve_get);
 router.get('/approve/output/:id',approveController.output_approve_detail_get);
 
 router.post('/approve/output/:id',approveController.output_approve_detail_post);
+
+/// admin ///
+router.get('/grade_management/upload',student_course_controller.grade_upload_get);
+
+router.post('/grade_management/upload',grade_upload.single('file'),student_course_controller.grade_upload_post);
 
 
 

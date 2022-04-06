@@ -25,7 +25,6 @@ exports.output_approve_get = function(req,res,next) {
                 //用students里每一项查询academic output，合并到数组result
                 for (i = 0, len = students.length; i < len; i++) {
                     var output_result = await Academic_Output.find({studentID: students[i],status:'未审批'}).exec();
-                    console.log(output_result);
                     //合并数组
                     results.push.apply(results, output_result);
                 }

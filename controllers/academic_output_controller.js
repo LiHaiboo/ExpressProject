@@ -34,8 +34,6 @@ exports.output_create_get = function(req,res,next){
 
 exports.output_create_post = function (req, res, next) {
 
-    console.log(req);
-
     if (typeof(req.file)=='undefined') {  //判断一下文件是否存在，也可以在前端代码中进行判断。
         res.send("上传文件不能为空！");
         return;

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= title
+
+    ul
+    each stu_competition in competition_list
+        li
+            a(href=stu_competition.competition.url) #{stu_competition.competition.name}
+        li  #{stu_competition.award}
+
+    else
+        li 当前无竞赛信息
