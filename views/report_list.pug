@@ -1,0 +1,10 @@
+extends layout_student
+
+block content
+    h1=title
+    ul
+    each report in report_list
+        li
+            a(href=report.url) #{report.reported_stu.student_name} #{report.zh_type}
+    else
+        li 当前无举报信息

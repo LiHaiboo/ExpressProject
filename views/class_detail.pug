@@ -7,6 +7,8 @@ block content
             th 姓名
             th 学号
             th 成绩
+            th 竞赛
+            th 论文专利
         each student in student_list
             tr
                 th #{student.student_name}
@@ -16,5 +18,15 @@ block content
                         a(href='/catalog/grades') 总分（未实现）
                     else
                         a(href=student.grade_url) 总分（未实现）
+                th
+                    if student.studentID == current_user
+                        a(href='/catalog/competitions') 总分（未实现）
+                    else
+                        a(href=student.competition_url) 总分（未实现）
+                th
+                    if student.studentID == current_user
+                        a(href='/catalog/academic_outputs') 总分（未实现）
+                    else
+                        a(href=student.academic_output_url) 总分（未实现）
         else
             li 没有班级信息

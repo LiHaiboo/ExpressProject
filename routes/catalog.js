@@ -18,6 +18,7 @@ var academic_output_controller = require('../controllers/academic_output_control
 var approveController = require('../controllers/approveController');
 var competition_controller = require('../controllers/competitionController');
 var class_controller = require('../controllers/classController');
+var report_controller = require('../controllers/reportController');
 
 
 /// BOOK ROUTES ///
@@ -44,6 +45,8 @@ router.get('/grades/:id',student_course_controller.grade_detail_get);
 
 router.post('/grades/:id',student_course_controller.grade_detail_post);
 
+
+
 router.get('/academic_outputs',academic_output_controller.academic_output_list);
 
 router.get('/academic_outputs/create',academic_output_controller.output_create_get);
@@ -52,11 +55,26 @@ router.post('/academic_outputs/create',upload.single('file'),academic_output_con
 
 router.get('/academic_outputs/:id',academic_output_controller.output_detail);
 
+router.get('/student/:id/academic_outputs',academic_output_controller.output_info);
+
+
+
+
 router.get('/competitions',competition_controller.competition_list);
 
 router.get('/competitions/:id',competition_controller.competition_detail);
 
+router.get('/student/:id/competitions',competition_controller.competition_info);
+
+
+
 router.get('/classes',class_controller.class_detail);
+
+router.get('/reports',report_controller.report_list);
+
+router.get('/reports/:id',report_controller.report_detail);
+
+
 
 /// tutor ///
 router.get('/approve',approveController.approve_list);

@@ -1,9 +1,10 @@
 var Academic_Output = require('../models/academic_output');
 var Paper_Info = require('../models/paper_info');
+var Student = require('../models/student');
 let fs = require("fs");
 
 exports.academic_output_list = function(req,res,next){
-    Academic_Output.find()
+    Academic_Output.find({studentID:req.session.loginUser})
         .exec(function (err, list_outputs) {
             if (err) { return next(err); }
             console.log(list_outputs);
@@ -74,4 +75,15 @@ exports.output_create_post = function (req, res, next) {
                 res.render('academicoutput_create_success',{title:'提交成功'});
             });
     }
+}
+
+exports.output_info = async function (req, res, next){
+    let this_student = await Student.findById(req.params.id);
+    Academic_Output.find({studentID:this_student.studentID,status:'已审核'})
+        .exec(function (err, list_outputs) {
+            if (err) { return next(err); }
+            console.log(list_outputs);
+            //Successful, so render
+            res.render('academicoutput_list_class', { title: '论文专利', output_list: list_outputs });
+        });
 }

@@ -22,6 +22,20 @@ StudentSchema
         return '/catalog/grades/' + this._id;
     });
 
+// 虚拟属性'url'：学生URL
+StudentSchema
+    .virtual('competition_url')
+    .get(function () {
+        return '/catalog/student/' + this._id + '/competitions';
+    });
+
+// 虚拟属性'url'：学生URL
+StudentSchema
+    .virtual('academic_output_url')
+    .get(function () {
+        return '/catalog/student/' + this._id + '/academic_outputs';
+    });
+
 // 导出模块
 module.exports = mongoose.model('Student', StudentSchema);
 

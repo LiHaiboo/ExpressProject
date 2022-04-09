@@ -164,7 +164,7 @@ html(lang='en')
                         #navbarNav.collapse.navbar-collapse
                             ul.navbar-nav.flex-column
                                 li.nav-divider
-                                    | 菜单
+                                    | 个人综测
                                 li.nav-item
                                     a.nav-link.active(href='#' data-toggle='collapse' aria-expanded='false' data-target='#submenu-1' aria-controls='submenu-1')
                                         i.fa.fa-fw.fa-user-circle
@@ -190,6 +190,8 @@ html(lang='en')
                                         ul.nav.flex-column
                                             li.nav-item
                                                 a.nav-link(href='/catalog/competitions') 我的竞赛
+                                li.nav-divider
+                                    | 信息面板
                                 li.nav-item
                                     a.nav-link(href='#' data-toggle='collapse' aria-expanded='false' data-target='#submenu-4' aria-controls='submenu-4')
                                         i.fas.fa-f.fa-folder
@@ -198,6 +200,15 @@ html(lang='en')
                                         ul.nav.flex-column
                                             li.nav-item
                                                 a.nav-link(href='/catalog/classes') 我的班级
+                                li.nav-item
+                                    a.nav-link(href='#' data-toggle='collapse' aria-expanded='false' data-target='#submenu-5' aria-controls='submenu-5')
+                                        i.fas.fa-f.fa-folder
+                                        | 质疑举报
+                                    #submenu-5.collapse.submenu(style='')
+                                        ul.nav.flex-column
+                                            li.nav-item
+                                                a.nav-link(href='/catalog/reports') 我的举报
+
 
             // ==============================================================
             // end left sidebar

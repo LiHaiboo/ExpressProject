@@ -1,5 +1,6 @@
 var Academic_Output = require('../models/academic_output');
 var Class = require('../models/class');
+var Report = require('../models/report');
 var async = require('async');
 
 
@@ -66,5 +67,10 @@ exports.output_approve_detail_post = async function(req, res, next) {
         if(err){return next(err);}
         res.redirect('/catalog/approve/output');
     });
+
+}
+
+
+exports.report_approve_get = function(req,res,next) {
 
 }

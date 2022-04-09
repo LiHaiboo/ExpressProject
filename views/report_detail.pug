@@ -1,0 +1,26 @@
+extends layout_student
+
+block content
+    h1 #{title}
+    p #[strong 举报对象:] #{report.reported_stu.student_name}
+    if report_type === 'Stu_Competition'
+        p #[strong 相关内容:]
+            a(href='/catalog/competitions/'+report.report_object.competition) 点击查看
+            p #[strong 奖项:]#{report.report_object.award}
+    else if report_type === 'Academic_Output'
+        p #[strong 相关内容:]
+            a(href=report.report_object.url) #{report.report_object.name}
+    else if report_type === 'Student_Course'
+        p #[strong 相关内容:] #{report.report_object.course_name} 成绩:#{report.report_object.grade}
+
+    p #[strong 举报原因:] #{report.reason}
+    p #[strong 时间:] #{report.time}
+
+    p #[strong 审核状态:]
+        if report.status=='已审核'
+            span.text-success #{report.status}
+        else if report.status == '未通过'
+            span.text-danger #{report.status}
+            p #[strong 未通过原因:]#{report.comment}
+        else
+            span.text-warning #{report.status}

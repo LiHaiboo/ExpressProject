@@ -31,6 +31,7 @@ exports.grade_query_post = (req, res, next) => {
     if(req.body.courseID) query.$match.courseID = new RegExp(req.body.courseID);
     if(req.body.course_name) query.$match.course_name = new RegExp(req.body.course_name);
     if(req.body.semester) query.$match.semester = req.body.semester;
+    query.$match.studentID = req.session.loginUser;
 
 
     console.log(query.$match);
@@ -124,17 +125,20 @@ exports.grade_detail_get = async (req,res,next) => {
             studentID: this_student.studentID
         }
     }],async(err, data) => {
-        const allSemesters = await Student_Course.distinct('semester',{studentID: req.session.loginUser});
+        const allSemesters = await Student_Course.distinct('semester',{studentID: this_student.studentID});
         res.render('grade_list', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters});
     })
 
 }
 
-exports.grade_detail_post = (req,res,next) => {
+exports.grade_detail_post = async (req,res,next) => {
+
+    let this_student = await Student.findById(req.params.id);
     let query = {$match:{}};
     if(req.body.courseID) query.$match.courseID = new RegExp(req.body.courseID);
     if(req.body.course_name) query.$match.course_name = new RegExp(req.body.course_name);
     if(req.body.semester) query.$match.semester = req.body.semester;
+    query.$match.studentID = this_student.studentID;
 
 
     console.log(query.$match);
@@ -147,7 +151,7 @@ exports.grade_detail_post = (req,res,next) => {
             as:"course_detail"
         }
     },query],async(err, data) => {
-        const allSemesters = await Student_Course.distinct('semester',{studentID: req.params.id});
+        const allSemesters = await Student_Course.distinct('semester',{studentID: this_student.studentID});
         res.render('grade_list', {title: '查询结果', error: err, data_list: data, semester_list: allSemesters});
     })
 
