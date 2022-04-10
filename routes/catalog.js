@@ -41,9 +41,13 @@ router.get('/grades',student_course_controller.grade_list);
 
 router.post('/grades',student_course_controller.grade_query_post);
 
-router.get('/grades/:id',student_course_controller.grade_detail_get);
+// router.get('/grades/:id',student_course_controller.grade_detail_get);
+//
+// router.post('/grades/:id',student_course_controller.grade_detail_post);
 
-router.post('/grades/:id',student_course_controller.grade_detail_post);
+router.get('/student/:id/grades',student_course_controller.grade_info_get);
+
+router.post('/student/:id/grades',student_course_controller.grade_info_post);
 
 
 
@@ -59,7 +63,6 @@ router.get('/student/:id/academic_outputs',academic_output_controller.output_inf
 
 
 
-
 router.get('/competitions',competition_controller.competition_list);
 
 router.get('/competitions/:id',competition_controller.competition_detail);
@@ -70,9 +73,24 @@ router.get('/student/:id/competitions',competition_controller.competition_info);
 
 router.get('/classes',class_controller.class_detail);
 
+
+//举报
+
 router.get('/reports',report_controller.report_list);
 
 router.get('/reports/:id',report_controller.report_detail);
+
+router.get('/stu_competition/:id/report',report_controller.competition_report_create_get);
+
+router.post('/stu_competition/:id/report',report_controller.competition_report_create_post);
+
+router.get('/academic_output/:id/report',report_controller.output_report_create_get);
+
+router.post('/academic_output/:id/report',report_controller.output_report_create_post);
+
+router.get('/grade/:id/report',report_controller.grade_report_create_get);
+
+router.post('/grade/:id/report',report_controller.grade_report_create_post);
 
 
 
@@ -84,6 +102,12 @@ router.get('/approve/output',approveController.output_approve_get);
 router.get('/approve/output/:id',approveController.output_approve_detail_get);
 
 router.post('/approve/output/:id',approveController.output_approve_detail_post);
+
+router.get('/approve/report',approveController.report_approve_get);
+
+router.get('/approve/report/:id',approveController.report_approve_detail_get);
+
+router.post('/approve/report/:id',approveController.report_approve_detail_post);
 
 /// admin ///
 router.get('/grade_management/upload',student_course_controller.grade_upload_get);

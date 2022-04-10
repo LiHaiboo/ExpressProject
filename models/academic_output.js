@@ -27,6 +27,13 @@ AcademicOutputSchema
         return '/catalog/approve/output/' + this._id;
     });
 
+// 虚拟属性'url'
+AcademicOutputSchema
+    .virtual('report_url')
+    .get(function () {
+        return '/catalog/academic_output/' + this._id +'/report';
+    });
+
 //虚拟属性'isAuthorize'
 AcademicOutputSchema.virtual('isAuthorized')
     .get(function(){

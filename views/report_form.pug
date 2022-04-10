@@ -1,0 +1,16 @@
+extends layout_student
+block content
+    h1='质疑举报'
+    if report_type === 'grade'
+        h5=report_object.course_name + ' (' + stu_name + ')'
+    if report_type === 'competition'
+        h5=report_object.competition.name + ' (' + stu_name + ')'
+    if report_type === 'output'
+        h5=report_object.name + ' (' + stu_name + ')'
+    form(action='' method='post')
+        div.form-group
+
+            label(for='reason') 举报原因:
+                textarea.form-control(id='reason' name='reason' placeholder='请写明质疑举报的理由以及证据' rows='3')
+            br
+            button.btn.btn-primary(type='submit') 提交

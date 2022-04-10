@@ -4,7 +4,7 @@ var Student = require('../models/student');
 
 exports.competition_list = function(req, res, next){
 
-    Stu_Competition.find({studentID:req.session.loginUser})
+    Stu_Competition.find({studentID:req.session.loginUser,status:'已审核'})
         .populate('competition')
         .exec(function (err, list_competition) {
             if (err) { return next(err); }

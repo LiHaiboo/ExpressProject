@@ -19,6 +19,13 @@ ReportSchema
         return '/catalog/reports/' + this._id;
     });
 
+// 虚拟属性'url'
+ReportSchema
+    .virtual('approve_url')
+    .get(function () {
+        return '/catalog/approve/report/' + this._id;
+    });
+
 
 ReportSchema
     .virtual('zh_type')

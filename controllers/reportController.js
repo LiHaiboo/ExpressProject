@@ -4,6 +4,7 @@ var Academic_Output = require('../models/academic_output');
 var Stu_Competition = require('../models/stu_competition');
 var Student = require('../models/student');
 var Competition = require('../models/competition');
+var moment = require('moment');
 
 exports.report_list = function(req,res,next){
     Report.find({studentID:req.session.loginUser}).populate('reported_stu').exec(function (err, list_reports) {
@@ -46,5 +47,107 @@ exports.report_detail = async function(req,res,next){
         //Successful, so render
         res.render('report_detail', { title: '举报详情', report: result, report_type: report_type});
     })
+}
+
+exports.grade_report_create_get = async function(req,res,next){
+    let grade = await Student_Course.findById(req.params.id);
+    let stu = await Student.findOne({studentID:grade.studentID});
+    res.render('report_form',{report_type:'grade',report_object:grade,stu_name:stu.student_name});
+}
+
+
+exports.grade_report_create_post = async function(req,res,next){
+    let grade = await Student_Course.findById(req.params.id);
+    let stu = await Student.findOne({studentID:grade.studentID});
+
+    var new_report = new Report(
+        {
+            studentID:req.session.loginUser,
+            report_object:await Student_Course.findById(req.params.id),
+            reason:req.body.reason,
+            status:'未审核',
+            comment:'',
+            time:moment(Date.now()).format('YYYY年MM月DD日'),
+            reported_stu:stu._id,
+            report_type:'grade'
+        });
+
+    console.log(new_report);
+
+    new_report.save(function (err) {
+        if (err) { return next(err); }
+        // Successful - redirect to new record.
+        // res.type('html');
+        res.render('report_create_success',{title:'举报成功'});
+    });
+}
+
+
+
+exports.competition_report_create_get = async function(req,res,next){
+    let competition = await Stu_Competition.findById(req.params.id).populate('competition');
+    let stu = await Student.findOne({studentID:competition.studentID});
+    res.render('report_form',{report_type:'competition',report_object:competition,stu_name:stu.student_name});
+}
+
+
+exports.competition_report_create_post = async function(req,res,next){
+    let stu_competition = await Stu_Competition.findById(req.params.id);
+    let stu = await Student.findOne({studentID:stu_competition.studentID});
+
+    var new_report = new Report(
+        {
+            studentID:req.session.loginUser,
+            report_object:await Stu_Competition.findById(req.params.id),
+            reason:req.body.reason,
+            status:'未审核',
+            comment:'',
+            time:moment(Date.now()).format('YYYY年MM月DD日'),
+            reported_stu:stu._id,
+            report_type:'competition'
+        });
+
+    console.log(new_report);
+
+    new_report.save(function (err) {
+        if (err) { return next(err); }
+        // Successful - redirect to new record.
+        // res.type('html');
+        res.render('report_create_success',{title:'举报成功'});
+    });
+}
+
+
+
+exports.output_report_create_get = async function(req,res,next){
+    let output = await Academic_Output.findById(req.params.id);
+    let stu = await Student.findOne({studentID:output.studentID});
+    res.render('report_form',{report_type:'output',report_object:output,stu_name:stu.student_name});
+}
+
+exports.output_report_create_post = async function(req,res,next){
+    let output = await Academic_Output.findById(req.params.id);
+    let stu = await Student.findOne({studentID:output.studentID});
+
+    var new_report = new Report(
+        {
+            studentID:req.session.loginUser,
+            report_object:await Academic_Output.findById(req.params.id),
+            reason:req.body.reason,
+            status:'未审核',
+            comment:'',
+            time:moment(Date.now()).format('YYYY年MM月DD日'),
+            reported_stu:stu._id,
+            report_type:'output'
+        });
+
+    console.log(new_report);
+
+    new_report.save(function (err) {
+        if (err) { return next(err); }
+        // Successful - redirect to new record.
+        // res.type('html');
+        res.render('report_create_success',{title:'举报成功'});
+    });
 }
 

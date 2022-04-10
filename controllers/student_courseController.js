@@ -107,9 +107,57 @@ exports.grade_upload_post = (req, res, next) => {
     }
 
 }
+//
+// exports.grade_detail_get = async (req,res,next) => {
+//
+//     let this_student = await Student.findOne({_id:req.params.id});
+//     console.log(this_student);
+//
+//     Student_Course.aggregate([{
+//         $lookup:{
+//             from:"courses",
+//             localField:"courseID",
+//             foreignField:"courseID",
+//             as:"course_detail"
+//         }
+//     },{
+//         $match:{
+//             studentID: this_student.studentID
+//         }
+//     }],async(err, data) => {
+//         const allSemesters = await Student_Course.distinct('semester',{studentID: this_student.studentID});
+//         res.render('grade_list', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters});
+//     })
+//
+// }
 
-exports.grade_detail_get = async (req,res,next) => {
+// exports.grade_detail_post = async (req,res,next) => {
+//
+//     let this_student = await Student.findById(req.params.id);
+//     let query = {$match:{}};
+//     if(req.body.courseID) query.$match.courseID = new RegExp(req.body.courseID);
+//     if(req.body.course_name) query.$match.course_name = new RegExp(req.body.course_name);
+//     if(req.body.semester) query.$match.semester = req.body.semester;
+//     query.$match.studentID = this_student.studentID;
+//
+//
+//     console.log(query.$match);
+//
+//     Student_Course.aggregate([{
+//         $lookup:{
+//             from:"courses",
+//             localField:"courseID",
+//             foreignField:"courseID",
+//             as:"course_detail"
+//         }
+//     },query],async(err, data) => {
+//         const allSemesters = await Student_Course.distinct('semester',{studentID: this_student.studentID});
+//         res.render('grade_list', {title: '查询结果', error: err, data_list: data, semester_list: allSemesters});
+//     })
+//
+// }
 
+exports.grade_info_get = async function(req, res, next) {
     let this_student = await Student.findOne({_id:req.params.id});
     console.log(this_student);
 
@@ -126,13 +174,14 @@ exports.grade_detail_get = async (req,res,next) => {
         }
     }],async(err, data) => {
         const allSemesters = await Student_Course.distinct('semester',{studentID: this_student.studentID});
-        res.render('grade_list', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters});
+
+        console.log('/catalog/grade/' + data[0]._id + '/report');
+        res.render('grade_list_class', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters});
     })
+};
 
-}
 
-exports.grade_detail_post = async (req,res,next) => {
-
+exports.grade_info_post = async (req, res, next) => {
     let this_student = await Student.findById(req.params.id);
     let query = {$match:{}};
     if(req.body.courseID) query.$match.courseID = new RegExp(req.body.courseID);
@@ -152,7 +201,6 @@ exports.grade_detail_post = async (req,res,next) => {
         }
     },query],async(err, data) => {
         const allSemesters = await Student_Course.distinct('semester',{studentID: this_student.studentID});
-        res.render('grade_list', {title: '查询结果', error: err, data_list: data, semester_list: allSemesters});
+        res.render('grade_list_class', {title: '查询结果', error: err, data_list: data, semester_list: allSemesters});
     })
-
-}
+};

@@ -19,7 +19,7 @@ StudentSchema
 StudentSchema
     .virtual('grade_url')
     .get(function () {
-        return '/catalog/grades/' + this._id;
+        return '/catalog/student/' + this._id + '/grades';
     });
 
 // 虚拟属性'url'：学生URL

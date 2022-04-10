@@ -1,0 +1,32 @@
+extends tutor_layout
+
+block content
+    script(language='JavaScript').
+        function chk() {
+            if (form1.status[1].checked)
+                txt.style.display = "";
+            else
+                txt.style.display = "none";
+        }
+    h1 质疑举报审核:
+    p #[strong 论文专利详情:]
+        a(href= '/catalog/academic_outputs/'+ output_report.report_object._id) #{output_report.report_object.name}
+    p #[strong 被举报人:] #{output_report.reported_stu.student_name}
+    p #[strong 举报人:] #{stu.student_name}
+    p #[strong 原因:] #{output_report.reason}
+    p #[strong 时间:] #{output_report.time}
+
+    form(name='form1' method='POST' action='')
+        label 审核结果:
+        br
+        div(style='display: inline; padding-right:10px;')
+            input.radio-input(type='radio', name='status', value='已审核', onclick='chk()' )
+            | 通过
+            input.radio-input(type='radio', name='status', value='未通过', onclick='chk()' )
+            | 未通过
+
+            #txt(style='DISPLAY:none')
+                label(for='comment') 未通过原因
+                    textarea.form-control(id='comment' name='comment' rows='3')
+        br
+        button.btn.btn-primary(type='submit') 提交
