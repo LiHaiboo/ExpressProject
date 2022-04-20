@@ -5,6 +5,11 @@ block content
     .row
         .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
             .card
+                .card-header.d-flex
+                    h5.card-header-title 竞赛列表
+                    .card-toolbar-tabs.ml-auto
+                        span.badge.badge-primary
+                            p(style='font-size:18px') 竞赛成绩: #{score}
                 .card-body
                     .table-responsive
                         table.table.table-striped.table-bordered.first

@@ -2,6 +2,10 @@ extends layout_student
 
 block content
     h1= title
+    div(align = 'right')
+        span.badge.badge-primary
+            p(style='font-size:18px') 论文专利成绩: #{score}
+    br
     each output in output_list
         .card
             .card-body

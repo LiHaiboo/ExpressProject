@@ -1,0 +1,32 @@
+extends layout_admin
+
+block content
+    h1='总分规则制定'
+    p 修改学生考评总成绩的计算规则，要求三项成绩占比和为100%
+    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+        .card
+            .card-body
+                form(method='POST' action='')
+                    .row
+                        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                            label(for='grade_weight') 学习成绩占比
+                            .input-group.mb-3
+                                input#grade_weight.form-control(type='text' name='grade_weight' value= rule.grade_weight)
+                                .input-group-append
+                                    span.input-group-text %
+                        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                            label(for='competition_weight') 竞赛成绩占比
+                            .input-group.mb-3
+                                input#competition_weight.form-control(type='text' name='competition_weight' value= rule.competition_weight)
+                                .input-group-append
+                                    span.input-group-text %
+                        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                            label(for='output_weight') 论文专利占比
+                            .input-group.mb-3
+                                input#output_weight.form-control(type='text' name='output_weight' value= rule.output_weight)
+                                .input-group-append
+                                    span.input-group-text %
+                    br
+                    .form-row
+                        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                            button.btn.btn-primary(type='submit') 修改规则

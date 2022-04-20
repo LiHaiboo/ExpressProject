@@ -63,6 +63,7 @@ exports.index = function(req, res) {
                 Genre.count({}, callback);
             },
         }, function (err, results) {
+            res.cookie("permission",results.user.permission);
             res.render('index_tutor', {title: '学生综合测评管理系统', error: err, data: results});
         });
 
@@ -89,6 +90,7 @@ exports.index = function(req, res) {
                 Genre.count({}, callback);
             },
         }, function (err, results) {
+            res.cookie("permission",results.user.permission);
             res.render('index_admin', {title: '学生综合测评管理系统', error: err, data: results});
         });
 

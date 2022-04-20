@@ -19,6 +19,7 @@ var approveController = require('../controllers/approveController');
 var competition_controller = require('../controllers/competitionController');
 var class_controller = require('../controllers/classController');
 var report_controller = require('../controllers/reportController');
+var rule_controller = require('../controllers/ruleController');
 
 
 /// BOOK ROUTES ///
@@ -113,6 +114,14 @@ router.post('/approve/report/:id',approveController.report_approve_detail_post);
 router.get('/grade_management/upload',student_course_controller.grade_upload_get);
 
 router.post('/grade_management/upload',grade_upload.single('file'),student_course_controller.grade_upload_post);
+
+router.get('/rules/sum',rule_controller.sum_rule_get);
+
+router.post('/rules/sum',rule_controller.sum_rule_post);
+
+router.get('/rules/competition',rule_controller.competition_rule_get);
+
+router.post('/rules/competition',rule_controller.competition_rule_post);
 
 
 

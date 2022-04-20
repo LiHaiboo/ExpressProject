@@ -16,6 +16,7 @@ block content
                                     th 成绩
                                     th 竞赛
                                     th 论文专利
+                                    th 综合成绩
                             tbody
                                 each student,index in student_list
                                     tr
@@ -28,13 +29,14 @@ block content
                                                 a(href=student.grade_url) #{GPAs[index]}
                                         th
                                             if student.studentID == current_user
-                                                a(href='/catalog/competitions') 总分（未实现）
+                                                a(href='/catalog/competitions') #{competitionScores[index]}
                                             else
-                                                a(href=student.competition_url) 总分（未实现）
+                                                a(href=student.competition_url) #{competitionScores[index]}
                                         th
                                             if student.studentID == current_user
-                                                a(href='/catalog/academic_outputs') 总分（未实现）
+                                                a(href='/catalog/academic_outputs') #{outputScores[index]}
                                             else
-                                                a(href=student.academic_output_url) 总分（未实现）
+                                                a(href=student.academic_output_url) #{outputScores[index]}
+                                        th #{sumScores[index]}
                                 else
                                     li 没有班级信息

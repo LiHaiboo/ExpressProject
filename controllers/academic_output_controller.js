@@ -2,14 +2,17 @@ var Academic_Output = require('../models/academic_output');
 var Paper_Info = require('../models/paper_info');
 var Student = require('../models/student');
 let fs = require("fs");
+var Tools = require('../tools');
+var countOutputScore = Tools.countOutputScore;
 
 exports.academic_output_list = function(req,res,next){
     Academic_Output.find({studentID:req.session.loginUser})
-        .exec(function (err, list_outputs) {
+        .exec(async function (err, list_outputs) {
             if (err) { return next(err); }
-            console.log(list_outputs);
+            let score = await countOutputScore(req.session.loginUser);
+            console.log(score);
             //Successful, so render
-            res.render('academicoutput_list', { title: '论文专利', output_list: list_outputs });
+            res.render('academicoutput_list', { title: '论文专利', output_list: list_outputs, score:score });
         });
 }
 

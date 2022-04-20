@@ -20,21 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e4dc3c2-74c4-41d3-8df3-78baa6648347" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/ruleController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/competition_rule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout_admin.pug" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layout_tutor.pug" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/rule_sum.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/academic_output_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/academic_output_controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/bookController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/bookController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/classController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/classController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/student_courseController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/student_courseController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/competitionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/competitionController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/catalog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/academicoutput_create_success.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/academicoutput_create_success.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/academicoutput_detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/academicoutput_detail.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/academicoutput_form.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/academicoutput_form.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/academicoutput_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/academicoutput_list.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/approve_output_detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/approve_output_detail.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/approve_output_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/approve_output_list.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/approve_report_detail_competition.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/approve_report_detail_competition.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/approve_report_detail_grade.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/approve_report_detail_grade.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/approve_report_detail_output.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/approve_report_detail_output.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/approve_report_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/approve_report_list.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/class_detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/class_detail.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/competition_detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/competition_detail.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/competition_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/competition_list.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/grade_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/grade_list.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout_student.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout_student.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/report_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/report_list.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/grade_upload.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/grade_upload.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/grade_upload_success.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/grade_upload_success.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index_admin.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index_admin.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index_tutor.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index_tutor.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +180,8 @@
       <workItem from="1650276769810" duration="3263000" />
       <workItem from="1650326035226" duration="3194000" />
       <workItem from="1650333999820" duration="16194000" />
+      <workItem from="1650419652327" duration="9176000" />
+      <workItem from="1650453693021" duration="5391000" />
     </task>
     <servers />
   </component>
@@ -199,22 +212,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="364" y="210" key="EditFileWatcherDialog/0.0.1536.834@0.0.1536.834" timestamp="1647518749509" />
-    <state width="1515" height="141" key="GridCell.Tab.0.bottom" timestamp="1650374889461">
+    <state width="1515" height="141" key="GridCell.Tab.0.bottom" timestamp="1650459237111">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="141" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1650374889461" />
-    <state width="1515" height="141" key="GridCell.Tab.0.center" timestamp="1650374889461">
+    <state width="1515" height="141" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1650459237111" />
+    <state width="1515" height="141" key="GridCell.Tab.0.center" timestamp="1650459237111">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="141" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1650374889461" />
-    <state width="1515" height="141" key="GridCell.Tab.0.left" timestamp="1650374889461">
+    <state width="1515" height="141" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1650459237111" />
+    <state width="1515" height="141" key="GridCell.Tab.0.left" timestamp="1650459237111">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="141" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1650374889461" />
-    <state width="1515" height="141" key="GridCell.Tab.0.right" timestamp="1650374889461">
+    <state width="1515" height="141" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1650459237111" />
+    <state width="1515" height="141" key="GridCell.Tab.0.right" timestamp="1650459237111">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="141" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1650374889461" />
+    <state width="1515" height="141" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1650459237111" />
     <state x="270" y="62" key="SettingsEditor" timestamp="1649208998460">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -223,6 +236,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="468" y="15" width="600" height="804" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1648518610426" />
+    <state x="267" y="205" key="run.anything.popup" timestamp="1650425097936">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="267" y="205" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1650425097936" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1648907566642">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

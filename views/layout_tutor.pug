@@ -1,0 +1,215 @@
+doctype html
+html(lang='en')
+    script(language='JavaScript').
+        function getCookieByName(name) {
+            const cookie = document.cookie;
+            return cookie.split(`${name}=`).pop().split(';').shift();}
+    head
+        // Required meta tags
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title= title
+        // Bootstrap CSS
+        link(rel='stylesheet' href='/assets/vendor/bootstrap/css/bootstrap.min.css')
+        link(href='/assets/vendor/fonts/circular-std/style.css' rel='stylesheet')
+        link(rel='stylesheet' href='/assets/libs/css/style.css')
+        link(rel='stylesheet' href='/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+    body
+        // ==============================================================
+        // main wrapper
+        // ==============================================================
+        .dashboard-main-wrapper
+            // ==============================================================
+            // navbar
+            // ==============================================================
+            .dashboard-header
+                nav.navbar.navbar-expand-lg.bg-white.fixed-top
+                    a.navbar-brand(href='/catalog') 学生综合测评管理系统
+                    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
+                    #navbarSupportedContent.collapse.navbar-collapse
+                        ul.navbar-nav.ml-auto.navbar-right-top
+                            li.nav-item
+                                #custom-search.top-search-bar
+                                    input.form-control(type='text' placeholder='Search..')
+                            li.nav-item.dropdown.notification
+                                a#navbarDropdownMenuLink1.nav-link.nav-icons(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                    i.fas.fa-fw.fa-bell
+                                    span.indicator
+                                ul.dropdown-menu.dropdown-menu-right.notification-dropdown
+                                    li
+                                        .notification-title  Notification
+                                        .notification-list
+                                            .list-group
+                                                a.list-group-item.list-group-item-action.active(href='#')
+                                                    .notification-info
+                                                        .notification-list-user-img
+                                                            img.user-avatar-md.rounded-circle(src='/assets/images/avatar-2.jpg' alt='')
+                                                        .notification-list-user-block
+                                                            span.notification-list-user-name Jeremy Rakestraw
+                                                            | accepted your invitation to join the team.
+                                                            .notification-date 2 min ago
+                                                a.list-group-item.list-group-item-action(href='#')
+                                                    .notification-info
+                                                        .notification-list-user-img
+                                                            img.user-avatar-md.rounded-circle(src='/assets/images/avatar-3.jpg' alt='')
+                                                        .notification-list-user-block
+                                                            span.notification-list-user-name
+                                                                | John Abraham
+                                                            | is now following you
+                                                            .notification-date 2 days ago
+                                                a.list-group-item.list-group-item-action(href='#')
+                                                    .notification-info
+                                                        .notification-list-user-img
+                                                            img.user-avatar-md.rounded-circle(src='/assets/images/avatar-4.jpg' alt='')
+                                                        .notification-list-user-block
+                                                            span.notification-list-user-name Monaan Pechi
+                                                            |  is watching your main repository
+                                                            .notification-date 2 min ago
+                                                a.list-group-item.list-group-item-action(href='#')
+                                                    .notification-info
+                                                        .notification-list-user-img
+                                                            img.user-avatar-md.rounded-circle(src='/assets/images/avatar-5.jpg' alt='')
+                                                        .notification-list-user-block
+                                                            span.notification-list-user-name Jessica Caruso
+                                                            | accepted your invitation to join the team.
+                                                            .notification-date 2 min ago
+                                    li
+                                        .list-footer
+                                            a(href='#') View all notifications
+                            li.nav-item.dropdown.connection
+                                a#navbarDropdown.nav-link(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                    i.fas.fa-fw.fa-th
+                                ul.dropdown-menu.dropdown-menu-right.connection-dropdown
+                                    li.connection-list
+                                        .row
+                                            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                                                a.connection-item(href='#')
+                                                    img(src='/assets/images/github.png' alt='')
+                                                    span Github
+                                            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                                                a.connection-item(href='#')
+                                                    img(src='/assets/images/dribbble.png' alt='')
+                                                    span Dribbble
+                                            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                                                a.connection-item(href='#')
+                                                    img(src='/assets/images/dropbox.png' alt='')
+                                                    span Dropbox
+                                        .row
+                                            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                                                a.connection-item(href='#')
+                                                    img(src='/assets/images/bitbucket.png' alt='')
+                                                    span Bitbucket
+                                            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                                                a.connection-item(href='#')
+                                                    img(src='/assets/images/mail_chimp.png' alt='')
+                                                    span Mail chimp
+                                            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                                                a.connection-item(href='#')
+                                                    img(src='/assets/images/slack.png' alt='')
+                                                    span Slack
+                                    li
+                                        .conntection-footer
+                                            a(href='#') More
+                            li.nav-item.dropdown.nav-user
+                                a#navbarDropdownMenuLink2.nav-link.nav-user-img(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                    img.user-avatar-md.rounded-circle(src='/assets/images/user.png' alt='')
+                                .dropdown-menu.dropdown-menu-right.nav-user-dropdown(aria-labelledby='navbarDropdownMenuLink2')
+                                    .nav-user-info
+                                        h5#myname.mb-0.text-white.nav-user-name
+                                            | John Abraham
+                                        script.
+                                            document.getElementById("myname").innerHTML = getCookieByName("userID");
+                                            console.log(document.cookie);
+                                        span.status
+                                        span#mypermission.ml-2 Available
+                                        script.
+                                            let my_permission;
+                                            switch (getCookieByName("permission")) {
+                                                case 'student':
+                                                    my_permission = '学生用户';
+                                                    break;
+                                                case 'tutor':
+                                                    my_permission = '导员用户';
+                                                    break;
+                                                case 'admin':
+                                                    my_permission = '管理员用户';
+                                                    break;
+                                                default:
+                                                    my_permission = '未知用户';
+                                                    break;
+                                            }
+                                            document.getElementById("mypermission").innerHTML = my_permission;
+                                    a.dropdown-item(href='#')
+                                        i.fas.fa-user.mr-2
+                                        | 账户
+                                    a.dropdown-item(href='#')
+                                        i.fas.fa-cog.mr-2
+                                        | 设置
+                                    a.dropdown-item(href='#')
+                                        i.fas.fa-power-off.mr-2
+                                        | 登出
+            // ==============================================================
+            // end navbar
+            // ==============================================================
+            // ==============================================================
+            // left sidebar
+            // ==============================================================
+            .nav-left-sidebar.sidebar-dark
+                .menu-list
+                    nav.navbar.navbar-expand-lg.navbar-light
+                        a.d-xl-none.d-lg-none(href='#') Dashboard
+                        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+                            span.navbar-toggler-icon
+                        #navbarNav.collapse.navbar-collapse
+                            ul.navbar-nav.flex-column
+                                li.nav-divider
+                                    | 工作台
+                                li.nav-item
+                                    a.nav-link(href='#' data-toggle='collapse' aria-expanded='false' data-target='#submenu-1' aria-controls='submenu-1')
+                                        i.fa.fa-fw.fa-graduation-cap
+                                        | 审批任务
+                                        span.badge.badge-success 6
+                                    #submenu-1.collapse.submenu(style='')
+                                        ul.nav.flex-column
+                                            li.nav-item
+                                                a.nav-link(href='/catalog/approve/output') 论文专利审批
+                                        ul.nav.flex-column
+                                            li.nav-item
+                                                a.nav-link(href='/catalog/approve/report') 质疑举报审批
+
+            // ==============================================================
+            // end left sidebar
+            // ==============================================================
+            // ==============================================================
+            // wrapper
+            // ==============================================================
+            .dashboard-wrapper
+                .container-fluid.dashboard-content
+                    .row
+                        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                            block content
+                // ==============================================================
+                // footer
+                // ==============================================================
+                //.footer
+                //    .container-fluid
+                //        .row
+                //            .col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                //                | Copyright © 2018 Concept. All rights reserved.More Templates
+                //            .col-xl-6.col-lg-6.col-md-12.col-sm-12.col-12
+                //                .text-md-right.footer-links.d-none.d-sm-block
+                //                    a(href='javascript: void(0);') About
+                //                    a(href='javascript: void(0);') Support
+                //                    a(href='javascript: void(0);') Contact Us
+                // ==============================================================
+                // end footer
+                // ==============================================================
+                // ==============================================================
+                // end main wrapper
+                // ==============================================================
+                // Optional JavaScript
+                script(src='/assets/vendor/jquery/jquery-3.3.1.min.js')
+                script(src='/assets/vendor/bootstrap/js/bootstrap.bundle.js')
+                script(src='/assets/vendor/slimscroll/jquery.slimscroll.js')
+                script(src='/assets/libs/js/main-js.js')
