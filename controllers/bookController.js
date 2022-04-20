@@ -4,7 +4,8 @@ var Genre = require('../models/genre');
 var User = require('../models/user');
 var BookInstance = require('../models/bookinstance');
 
-var permission_judge = require('../tools');
+var Tools = require('../tools');
+var permission_judge = Tools.permission_judge;
 var async = require('async');
 
 const { body,validationResult,sanitizeBody } = require('express-validator');

@@ -1,13 +1,24 @@
-extends layout
+extends layout_student
 
 block content
     h1= title
-
-    ul
-    each stu_competition in competition_list
-        li
-            a(href=stu_competition.competition.url) #{stu_competition.competition.name}
-        li  #{stu_competition.award}
-
-    else
-        li 当前无竞赛信息
+    .row
+        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+            .card
+                .card-body
+                    .table-responsive
+                        table.table.table-striped.table-bordered.first
+                            thead
+                                tr
+                                    th 竞赛名
+                                    th 奖项
+                                    th 链接
+                            tbody
+                                each stu_competition in competition_list
+                                    tr
+                                        th #{stu_competition.competition.name}
+                                        th #{stu_competition.award}
+                                        th
+                                            a(href=stu_competition.competition.url) 竞赛详情
+                                else
+                                    tr 当前无竞赛信息

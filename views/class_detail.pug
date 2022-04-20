@@ -2,31 +2,39 @@ extends layout_student
 block content
     h1 #{myclass.name}
     p 班导师:#{myclass.tutor_name}
-    table
-        tr
-            th 姓名
-            th 学号
-            th 成绩
-            th 竞赛
-            th 论文专利
-        each student in student_list
-            tr
-                th #{student.student_name}
-                th #{student.studentID}
-                th
-                    if student.studentID == current_user
-                        a(href='/catalog/grades') 总分（未实现）
-                    else
-                        a(href=student.grade_url) 总分（未实现）
-                th
-                    if student.studentID == current_user
-                        a(href='/catalog/competitions') 总分（未实现）
-                    else
-                        a(href=student.competition_url) 总分（未实现）
-                th
-                    if student.studentID == current_user
-                        a(href='/catalog/academic_outputs') 总分（未实现）
-                    else
-                        a(href=student.academic_output_url) 总分（未实现）
-        else
-            li 没有班级信息
+    .row
+        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+            .card
+                h5.card-header 班级成员
+                .card-body
+                    .table-responsive
+                        table.table.table-striped.table-bordered.first
+                            thead
+                                tr
+                                    th 姓名
+                                    th 学号
+                                    th 成绩
+                                    th 竞赛
+                                    th 论文专利
+                            tbody
+                                each student,index in student_list
+                                    tr
+                                        th #{student.student_name}
+                                        th #{student.studentID}
+                                        th
+                                            if student.studentID == current_user
+                                                a(href='/catalog/grades') #{GPAs[index]}
+                                            else
+                                                a(href=student.grade_url) #{GPAs[index]}
+                                        th
+                                            if student.studentID == current_user
+                                                a(href='/catalog/competitions') 总分（未实现）
+                                            else
+                                                a(href=student.competition_url) 总分（未实现）
+                                        th
+                                            if student.studentID == current_user
+                                                a(href='/catalog/academic_outputs') 总分（未实现）
+                                            else
+                                                a(href=student.academic_output_url) 总分（未实现）
+                                else
+                                    li 没有班级信息

@@ -2,6 +2,8 @@ var Student_Course = require('../models/student_course');
 var Student = require('../models/student');
 var Course = require('../models/course');
 var async = require('async');
+var Tools = require('../tools');
+var countGPA = Tools.countGPA;
 const mongoose = require('mongoose');
 let fs = require("fs");
 var xlsx = require('xlsx');
@@ -21,7 +23,8 @@ exports.grade_list = function(req, res, next) {
             }
         }],async(err, data) => {
         const allSemesters = await Student_Course.distinct('semester',{studentID: req.session.loginUser});
-        res.render('grade_list', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters});
+        let GPA = await countGPA(req.session.loginUser);
+        res.render('grade_list', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters, GPA:GPA});
     })
 };
 
@@ -45,7 +48,8 @@ exports.grade_query_post = (req, res, next) => {
         }
     },query],async(err, data) => {
         const allSemesters = await Student_Course.distinct('semester',{studentID: req.session.loginUser});
-        res.render('grade_list', {title: '查询结果', error: err, data_list: data, semester_list: allSemesters});
+        let GPA = await countGPA(req.session.loginUser);
+        res.render('grade_list', {title: '课内成绩', error: err, data_list: data, semester_list: allSemesters, GPA:GPA});
     })
 };
 

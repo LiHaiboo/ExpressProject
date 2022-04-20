@@ -1,14 +1,17 @@
-extends layout
+extends layout_student
 
 block content
     h1= title
-
-    ul
     each output in output_list
-        li
-            a(href=output.url) #{output.name}
+        .card
+            .card-body
+                h4.card-title #{output.name}
+            .card-footer.p-0.text-center
+                .card-footer-item.card-footer-item-bordered
+                    a.card-link(href=output.url) 项目详情
     else
-        li There are no outputs.
+        p 无相关信息
 
     p
-        a(href='/catalog/academic_outputs/create') 添加项目
+        a(href='/catalog/academic_outputs/create')
+            button.btn.btn-primary 提交添加项目

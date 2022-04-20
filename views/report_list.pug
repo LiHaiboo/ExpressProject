@@ -2,9 +2,37 @@ extends layout_student
 
 block content
     h1=title
-    ul
-    each report in report_list
-        li
-            a(href=report.url) #{report.reported_stu.student_name} #{report.zh_type}
-    else
-        li 当前无举报信息
+
+    .row
+        .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+            .card
+                h5.card-header 举报列表
+                .card-body
+                    .table-responsive
+                        table.table.table-striped.table-bordered.first
+                            thead
+                                tr
+                                    th 举报编号
+                                    th 举报对象
+                                    th 举报类型
+                                    th 举报时间
+                                    th 举报详情
+                                    th 审核状态
+                            tbody
+                                each report in report_list
+                                    tr
+                                        th #{report._id}
+                                        th #{report.reported_stu.student_name}
+                                        th #{report.zh_type}
+                                        th #{report.time}
+                                        th
+                                            a(href=report.url) 链接
+                                        th
+                                            if(report.status == '未审核')
+                                                span.badge.badge-primary 未审核
+                                            else if(report.status == '已审核')
+                                                span.badge.badge-success 已通过
+                                            else
+                                                span.badge.badge-danger 未通过
+                                else
+                                    li 当前无举报信息
